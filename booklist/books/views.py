@@ -36,3 +36,8 @@ class BookDeleteView(DeleteView):
     model = Book
     template_name = "books/book_delete.html"
     success_url = reverse_lazy('book_list')
+
+class BookStatsView(ListView):
+    model = Book
+    template_name = "books/book_stats.html"
+    context_object_name = "book"

@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 STATUS_CHOICES = (
     ('reading', 'Reading'),
@@ -19,3 +20,8 @@ class Book(models.Model):
     )
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("book_detail", kwargs={
+            "pk": self.id
+        })
